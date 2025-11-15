@@ -1,0 +1,249 @@
+/* ---------------------------------------------------
+   PURE iOS WEATHER APP – FINAL CLEAN VERSION
+--------------------------------------------------- */
+
+body {
+  margin: 0;
+  font-family: -apple-system, SF Pro Display, Inter, Arial;
+  background: linear-gradient(180deg, #1e2a44 0%, #111a2e 100%);
+  background-size: cover;
+  color: white;
+  padding: 20px;
+  transition: background 0.6s ease;
+}
+
+/* APP WRAPPER */
+.app {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* --------------------------------------
+   iOS FLOATING SEARCH BAR
+-------------------------------------- */
+.iosSearchWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.iosSearchBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 96%;
+  padding: 10px 14px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+  position: relative;
+}
+
+.iosSearchBar input {
+  flex: 1;
+  padding: 14px 50px 14px 18px;
+  font-size: 18px;
+  border: none;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.18);
+  color: white;
+  outline: none;
+}
+
+.clearBtn {
+  position: absolute;
+  right: 65px;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.clearBtn:hover { opacity: 1; }
+
+.iosSearchBtn {
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.22);
+  border: none;
+  border-radius: 14px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* --------------------------------------
+   MAIN WEATHER DISPLAY (iOS CARD)
+-------------------------------------- */
+.main {
+  width: 96%;
+  margin: auto;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(22px);
+  border-radius: 24px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+  animation: popIn 0.4s ease forwards;
+}
+
+.bigIcon {
+  width: 130px;
+  filter: drop-shadow(0 4px 12px rgba(255,255,255,0.5));
+}
+
+.bigTemp {
+  font-size: 64px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.place {
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.detailsRow {
+  margin-top: 14px;
+  text-align: left;
+  font-size: 18px;
+  line-height: 26px;
+  opacity: 0.9;
+}
+
+/* --------------------------------------
+   HOURLY FORECAST (iOS SCROLL STRIP)
+-------------------------------------- */
+.hourList {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 14px;
+}
+
+.hourItem {
+  min-width: 130px;
+  padding: 18px;
+  text-align: center;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+}
+
+.hourItem img {
+  width: 65px;
+  height: 65px;
+  margin: 8px 0;
+  filter: brightness(1.4) drop-shadow(0 0 6px rgba(255,255,255,0.7));
+}
+
+/* --------------------------------------
+   NEXT 5 DAYS (iOS STYLE CARDS)
+-------------------------------------- */
+.weekGrid {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+}
+
+.dayCard {
+  min-width: 130px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+}
+
+.dayCard img {
+  width: 65px;
+  height: 65px;
+  margin-bottom: 4px;
+  filter: brightness(1.4) drop-shadow(0 0 6px rgba(255,255,255,0.7));
+}
+
+/* --------------------------------------
+   POP-IN ANIMATION
+-------------------------------------- */
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.86) translateY(12px); }
+  60% { opacity: 1; transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* --------------------------------------
+   MOBILE RESPONSIVE — REAL iOS STYLE
+-------------------------------------- */
+@media (max-width: 480px) {
+
+  body { padding: 14px; }
+
+  .bigIcon { width: 110px; }
+  .bigTemp { font-size: 56px; }
+  .place { font-size: 22px; }
+
+  .iosSearchBar input {
+    font-size: 20px;
+    padding: 14px 55px 14px 20px;
+  }
+
+  .clearBtn { right: 72px; }
+
+  .hourItem {
+    min-width: 120px;
+    padding: 16px;
+  }
+
+  .hourItem img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .dayCard {
+    min-width: 120px;
+  }
+
+  .dayCard img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* -------------------------------
+   Section container + heading
+   (Final iOS look additions)
+------------------------------- */
+.sectionCard {
+  width: 96%;
+  margin: auto;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(20px);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+  animation: popIn 0.4s ease forwards;
+}
+
+.sectionCard h3 {
+  margin: 0 0 12px 0;
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* Ensure icons are bright on dark backgrounds */
+.hourItem img,
+.dayCard img {
+  filter: brightness(1.4) drop-shadow(0 0 6px rgba(255,255,255,0.7));
+}
+
+@media (max-width: 480px) {
+  .clearBtn {
+    right: 72px;
+  }
+}

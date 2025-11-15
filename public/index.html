@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Weather</title>
+  <link rel="stylesheet" href="style-ios.css">
+</head>
+<body>
+
+<div class="app">
+
+  <div class="top">
+    <div class="iosSearchWrapper">
+      <div class="iosSearchBar">
+        <input id="cityInput" placeholder="Search City">
+          <span id="clearBtn" class="clearBtn">✕</span>
+       
+        <button id="searchBtn" class="iosSearchBtn">Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card main">
+    <div class="current">
+      <img id="bigIcon" class="bigIcon">
+      <div>
+        <div id="bigTemp" class="bigTemp">--°C</div>
+        <div id="bigDesc" class="muted">---</div>
+        <div id="bigPlace" class="place">---</div>
+      </div>
+    </div>
+
+    <div class="detailsRow">
+      <div><b>Temperature:</b> <span id="dTemp">--</span></div>
+      <div><b>Feels Like:</b> <span id="dFeels">--</span></div>
+      <div><b>Weather:</b> <span id="dWeather">--</span></div>
+      <div><b>Humidity:</b> <span id="dHum">--</span></div>
+    </div>
+  </div>
+
+  <div class="sectionCard">
+    <h3>Last 8 Hours</h3>
+    <canvas id="hourChart" height="130"></canvas>
+    <div class="hourList" id="hourList"></div>
+  </div>
+
+  <div class="sectionCard">
+    <h3>Next 5 Days</h3>
+    <div class="weekGrid" id="weekGrid"></div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
