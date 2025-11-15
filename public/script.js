@@ -1,22 +1,28 @@
-const cityInput = document.getElementById("cityInput");
-const searchBtn = document.getElementById("searchBtn");
-const clearBtn = document.getElementById("clearBtn");
+async function getWeather() {
+  const city = document.getElementById("city").value.trim();
+  if (!city) return alert("Enter city");
 
-const bigIcon = document.getElementById("bigIcon");
-const bigTemp = document.getElementById("bigTemp");
-const bigDesc = document.getElementById("bigDesc");
-const bigPlace = document.getElementById("bigPlace");
+  const r = await fetch(`/api/weather?city=${city}`);
+  const data = await r.json();
 
-const dTemp = document.getElementById("dTemp");
-const dFeels = document.getElementById("dFeels");
-const dWeather = document.getElementById("dWeather");
-const dHum = document.getElementById("dHum");
+  const result = document.getElementById("result");
 
-const hourList = document.getElementById("hourList");
-const weekGrid = document.getElementById("weekGrid");
+  if (data.error) {
+    result.innerHTML = `<p>Error: ${data.error}</p>`;
+    return;
+  }
 
-const chartCanvas = document.getElementById("hourChart");
-const ctx = chartCanvas.getContext("2d");
+  if (data.cod === "404") {
+    result.innerHTML = `<p>City not found</p>`;
+    return;
+  }
+
+  result.innerHTML = `
+    <h2>${data.name}</h2>
+    <p>Temp: ${data.main.temp}°C</p>
+    <p>Weather: ${data.weather[0].description}</p>
+  `;
+}
 
 searchBtn.onclick = () => loadWeather(cityInput.value.trim());
 
