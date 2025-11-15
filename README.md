@@ -2,6 +2,8 @@
 
 Small Express app that serves a static frontend and proxies requests to OpenWeatherMap.
 
+**Status**: ✅ Ready for Render deployment
+
 ## Prerequisites
 - Node.js 18+ (for global `fetch`) — Node 18 or newer is recommended.
 
