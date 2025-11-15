@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: weather-app
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: OPENWEATHER_API_KEY
+        scope: run
+        value: ${OPENWEATHER_API_KEY}
